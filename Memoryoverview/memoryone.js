@@ -1,4 +1,4 @@
-fetch("about.xml")
+fetch("../about/about.xml")
   .then(response => response.text())
   .then(text => {
     const parser = new DOMParser();
