@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>augmented memories</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://use.typekit.net/sjk0wyc.css">
+  <link rel="stylesheet" href="fragmenttwostyle.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../index/index.html" class="nav-link">HOME</a>
+      <p>Augmented Memories</p>
+      <a href="../about/about.html" class="nav-link">ABOUT</a>
+    </nav>
+  </header>
+
+  <section class="memory-stage">
+    <div>
+        <img src="../assets/photos/leaf.png" class="leaf">
+        <img src="../assets/photos/File68.jpeg" class="img-68">
+        <img src="../assets/photos/File69.jpeg" class="img-69">
+        <img src="../assets/photos/File70.jpeg" class="img-70">
+    </div>
+
+    <div>
+      <h2 class="memory-title">Isfahan</h2>
+      <p class="memory-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+        do eiusmod tempor incididunt ut labore et dolore magna 
+        aliqua. Ut enim ad minim veniam, quis nostrud 
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+        consequat. Duis aute irure dolor in reprehenderit 
+        in voluptate.
+        <a href="../fragmentthree/fragmentthree.html"> NEXT </a>
+      </p>
+    </div>
+
+    <svg class="ai-layer"></svg>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const stage = document.querySelector(".memory-stage");
+      const svg = document.querySelector(".ai-layer");
+      const targets = [
+        ...document.querySelectorAll(".img-68, .img-69, .img-70")
+      ];
+      const targetMeta = new Map();
+
+      if (!stage || !svg || targets.length === 0) return;
+
+      const SVG_NS = "http://www.w3.org/2000/svg";
+      let activeTarget = null;
+      const tag = document.createElement("a");
+      tag.className = "node-tag";
+      tag.href = "#";
+      stage.appendChild(tag);
+
+      targets.forEach((target) => {
+        if (target.classList.contains("img-68")) {
+          targetMeta.set(target, {
+            label: "<building_with_arches>",
+            href: "Nodes/file68.html"
+          });
+        } else if (target.classList.contains("img-69")) {
+          targetMeta.set(target, {
+            label: "<a_shaded_garden>",
+            href: "Nodes/file69.html"
+          });
+        } else if (target.classList.contains("img-70")) {
+          targetMeta.set(target, {
+            label: "<city_square>",
+            href: "Nodes/file70.html"
+          });
+        }
+      });
+
+      function getCenter(el) {
+        const rect = el.getBoundingClientRect();
+        const stageRect = stage.getBoundingClientRect();
+        return {
+          x: rect.left - stageRect.left + rect.width / 2,
+          y: rect.top - stageRect.top + rect.height / 2
+        };
+      }
+
+      function clearWeb() {
+        svg.innerHTML = "";
+        stage.classList.remove("ai-active");
+        tag.classList.remove("is-visible");
+      }
+
+      function showTag(target) {
+        const meta = targetMeta.get(target);
+        if (!meta) return;
+
+        const point = getCenter(target);
+        tag.textContent = meta.label;
+        tag.href = meta.href;
+        tag.classList.add("is-visible");
+
+        const preferredX = point.x + 16;
+        const preferredY = point.y - 18;
+        const maxX = stage.clientWidth - tag.offsetWidth - 8;
+        const maxY = stage.clientHeight - tag.offsetHeight - 8;
+        const x = Math.max(8, Math.min(preferredX, maxX));
+        const y = Math.max(8, Math.min(preferredY, maxY));
+        tag.style.left = `${x}px`;
+        tag.style.top = `${y}px`;
+      }
+
+      function drawLine(p1, p2, isActive) {
+        const line = document.createElementNS(SVG_NS, "line");
+        line.setAttribute("x1", p1.x);
+        line.setAttribute("y1", p1.y);
+        line.setAttribute("x2", p2.x);
+        line.setAttribute("y2", p2.y);
+        line.setAttribute("class", isActive ? "ai-line is-active" : "ai-line");
+        svg.appendChild(line);
+
+        const dx = p2.x - p1.x;
+        const dy = p2.y - p1.y;
+        const dist = Math.hypot(dx, dy) || 1;
+        const length = line.getTotalLength();
+        line.style.strokeDasharray = String(length);
+        line.style.strokeDashoffset = String(length);
+        line.style.transitionDuration = `${Math.min(760, 220 + dist * 0.6)}ms`;
+        requestAnimationFrame(() => {
+          line.style.strokeDashoffset = "0";
+        });
+      }
+
+      function drawWeb() {
+        if (!activeTarget) {
+          clearWeb();
+          return;
+        }
+
+        svg.innerHTML = "";
+        stage.classList.add("ai-active");
+
+        const points = targets.map(getCenter);
+        const activeIndex = targets.indexOf(activeTarget);
+
+        for (let i = 0; i < points.length; i += 1) {
+          for (let j = i + 1; j < points.length; j += 1) {
+            const isActive = i === activeIndex || j === activeIndex;
+            drawLine(points[i], points[j], isActive);
+          }
+        }
+
+        points.forEach((point, i) => {
+          const size = i === activeIndex ? 14 : 10;
+          const node = document.createElementNS(SVG_NS, "rect");
+          node.setAttribute("x", point.x - size / 2);
+          node.setAttribute("y", point.y - size / 2);
+          node.setAttribute("width", size);
+          node.setAttribute("height", size);
+          node.setAttribute("class", i === activeIndex ? "ai-node is-active" : "ai-node");
+          svg.appendChild(node);
+        });
+      }
+
+      targets.forEach((img) => {
+        img.addEventListener("mouseenter", () => {
+          activeTarget = img;
+          drawWeb();
+          showTag(img);
+        });
+
+        img.addEventListener("mouseleave", (event) => {
+          const next = event.relatedTarget;
+          if (next && (targets.includes(next) || next === tag || tag.contains(next))) return;
+          activeTarget = null;
+          clearWeb();
+        });
+      });
+
+      tag.addEventListener("mouseleave", (event) => {
+        const next = event.relatedTarget;
+        if (next && (targets.includes(next) || next === tag || tag.contains(next))) return;
+        activeTarget = null;
+        clearWeb();
+      });
+
+      stage.addEventListener("mouseleave", () => {
+        activeTarget = null;
+        clearWeb();
+      });
+
+      function redrawIfActive() {
+        if (activeTarget) drawWeb();
+      }
+
+      window.addEventListener("resize", redrawIfActive);
+      window.addEventListener("scroll", redrawIfActive, { passive: true });
+    });
+  </script>
+</body>
+</html>

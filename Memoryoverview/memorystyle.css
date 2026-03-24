@@ -1,0 +1,119 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* stops scroll */
+  }
+  
+  h1 {
+      font-family: "adobe-handwriting-ernie";
+   }
+   body {
+      font-family: "adobe-handwriting-ernie";
+   }
+  
+   .site-header {
+      padding: 0.5rem 1rem 0.1rem;
+      font-size: 1.5rem;
+      position: relative;
+      z-index: 10;
+      background: white; /* important so it actually covers the video */
+      }
+  
+   
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end; 
+      border-bottom: 2px solid #000;
+    }
+  
+    .nav p {
+      margin: 0;
+    }
+   
+   .nav-link {
+     font-family: "adobe-handwriting-ernie", cursive;
+     font-size: 2rem;
+     text-decoration: none; 
+     color: #000;
+   }
+   
+   .nav-link:hover {
+     opacity: 0.7;
+   }
+
+
+.map-video {
+    height: 100vh;
+    transform: scale(1.2);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .map-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 0;
+  }
+  
+ 
+  .map-overlay {
+    position: absolute;
+    right: 30%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: right;
+    z-index: 2;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  .map-title span {
+    opacity: 0;
+    display: inline-block;
+    animation: flickerIn 1.4s steps(1, end) forwards;
+    z-index: 10;
+    right: 30%;
+  }
+
+  .map-title {
+    margin: 0;
+    position: relative;
+    left: 200px;
+  }
+
+  .map-title span:nth-child(1)  { animation-delay: 0.00s; }
+  .map-title span:nth-child(2)  { animation-delay: 0.08s; }
+  .map-title span:nth-child(3)  { animation-delay: 0.16s; }
+  .map-title span:nth-child(4)  { animation-delay: 0.24s; }
+  .map-title span:nth-child(5)  { animation-delay: 0.32s; }
+  .map-title span:nth-child(6)  { animation-delay: 0.40s; }
+  .map-title span:nth-child(7)  { animation-delay: 0.48s; }
+  .map-title span:nth-child(8)  { animation-delay: 0.56s; }
+  .map-title span:nth-child(9)  { animation-delay: 0.64s; }
+  .map-title span:nth-child(10) { animation-delay: 0.72s; }
+  .map-title span:nth-child(11) { animation-delay: 0.80s; }
+  .map-title span:nth-child(12) { animation-delay: 0.88s; }
+  .map-title span:nth-child(13) { animation-delay: 0.96s; }
+  .map-title span:nth-child(14) { animation-delay: 1.04s; }
+  .map-title span:nth-child(15) { animation-delay: 1.12s; }
+  .map-title span:nth-child(16) { animation-delay: 1.20s; }
+  .map-title span:nth-child(17) { animation-delay: 1.28s; }
+  .map-title span:nth-child(18) { animation-delay: 1.36s; }
+  .map-title span:nth-child(19) { animation-delay: 1.44s; }
+
+  @keyframes flickerIn {
+    0%   { opacity: 0; }
+    30%  { opacity: 0.6; }
+    45%  { opacity: 0.15; }
+    60%  { opacity: 1; }
+    75%  { opacity: 0.35; }
+    100% { opacity: 1; }
+  }

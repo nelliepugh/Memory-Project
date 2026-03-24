@@ -1,0 +1,84 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto; /* stops scroll */
+  }
+  
+  h1 {
+      font-family: "adobe-handwriting-ernie";
+   }
+   body {
+      font-family: "adobe-handwriting-ernie";
+   }
+  
+   .site-header {
+      padding: 0.5rem 1rem 0.1rem;
+      font-size: 1.5rem;
+      position: relative;
+      z-index: 10;
+      background: white; /* important so it actually covers the video */
+      }
+  
+   
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end; 
+      border-bottom: 2px solid #000;
+    }
+  
+    .nav p {
+      margin: 0;
+    }
+   
+   .nav-link {
+     font-family: "adobe-handwriting-ernie", cursive;
+     font-size: 2rem;
+     text-decoration: none; 
+     color: #000;
+   }
+   
+   .nav-link:hover {
+     opacity: 0.7;
+   }
+  
+  .aboutgallery {
+    display: grid;
+    grid-template-columns: repeat(20, 52px);
+    justify-content: center;
+    width: min(98vw, 1200px);
+    margin: 0 auto;
+    overflow: hidden;
+    
+  }
+  .aboutgallery img {
+    width: 52px !important;
+    height: 64px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    
+  }
+  
+  .aboutgallery img.flicker {
+    animation-name: flicker;
+    animation-duration: var(--flicker-duration, 2.2s);
+    animation-delay: var(--flicker-delay, 0s);
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1, end);
+  }
+  
+  @keyframes flicker {
+    0% { opacity: 1; }
+    10% { opacity: 0.85; }
+    14% { opacity: 1; }
+    28% { opacity: 0.75; }
+    32% { opacity: 1; }
+    55% { opacity: 0.9; }
+    58% { opacity: 1; }
+    76% { opacity: 0.8; }
+    80% { opacity: 1; }
+    100% { opacity: 1; }
+  }
+  
+ 

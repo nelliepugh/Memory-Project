@@ -1,0 +1,95 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* stops scroll */
+}
+
+h1 {
+    font-family: "adobe-handwriting-ernie";
+ }
+ body {
+    font-family: "adobe-handwriting-ernie";
+ }
+
+ .site-header {
+  padding: 0.5rem 1rem 0.1rem;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 10;
+  background: white; /* important so it actually covers the video */
+  }
+
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; 
+  border-bottom: 2px solid #000;
+}
+
+.nav p {
+  margin: 0;
+}
+
+.nav-link {
+ font-family: "adobe-handwriting-ernie", cursive;
+ font-size: 2rem;
+ text-decoration: none; 
+ color: #000;
+}
+
+ .instructions {
+   padding: 1.25rem 1rem 0.5rem;
+ }
+
+ .instructions-box {
+   max-width: 760px;
+   margin: 0 auto;
+   border: 1px solid #000;
+   padding: 1rem 1.2rem;
+   font-family: "Courier New", Courier, monospace;
+   line-height: 1.5;
+ }
+
+ .instructions-box h2 {
+   margin: 0 0 0.5rem;
+ }
+
+ .instructions-box p {
+   margin: 0.45rem 0;
+ }
+
+ .lead {
+   font-weight: 700;
+ }
+
+ .instructions-list {
+   margin: 0.6rem 0;
+   padding-left: 1.2rem;
+ }
+
+ .instructions-list li {
+   margin: 0.35rem 0;
+ }
+
+ .start {
+   text-align: center;
+   padding: 0.75rem 1rem 1rem;
+ }
+
+ .start-button {
+   display: inline-block;
+   padding: 0.6rem 1rem;
+   border: 1px solid #000;
+   background: #fff;
+   color: #000;
+   text-decoration: none;
+   font-family: "adobe-handwriting-ernie";
+ }
+
+ .start-button:hover,
+ .start-button:focus-visible {
+   background: #000;
+   color: #fff;
+ }

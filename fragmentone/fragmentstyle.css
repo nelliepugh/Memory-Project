@@ -1,0 +1,224 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100%;
+  }
+  
+  h1 {
+      font-family: "adobe-handwriting-ernie";
+   }
+   body {
+      font-family: "adobe-handwriting-ernie";
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+   }
+  
+   .site-header {
+      padding: 0.5rem 1rem 0.1rem;
+      font-size: 1.5rem;
+      position: relative;
+      z-index: 10;
+      background: white; /* important so it actually covers the video */
+      }
+  
+   
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end; 
+      border-bottom: 2px solid #000;
+    }
+  
+    .nav p {
+      margin: 0;
+    }
+   
+   .nav-link {
+     font-family: "adobe-handwriting-ernie", cursive;
+     font-size: 2rem;
+     text-decoration: none; 
+     color: #000;
+   }
+   
+   .nav-link:hover {
+     opacity: 0.7;
+   }
+
+   .memory-stage {
+    position: relative;
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+    isolation: isolate;
+    
+  }
+
+
+  .flower-large {
+    position: absolute;
+    width: 500px;
+    top: 120px;
+    left: 10px;
+    z-index: 1;
+    mix-blend-mode: color-dodge;
+    pointer-events: none;
+}
+
+
+.img-file31 {
+    position: absolute;
+    width: 240px;
+    top: 20px;
+    left: 300px;
+    z-index: -1;
+    mix-blend-mode: exclusion;
+  
+}
+
+.img-file32 {
+    position: absolute;
+    width: 280px;
+    top: 40px;
+    left: 60px;
+    z-index: 0;
+    mix-blend-mode: multiply;
+}
+
+.img-file13 {
+    position: absolute;
+    width: 300px;
+    top: 420px;
+    right: 300px;
+    z-index: 2;
+    mix-blend-mode: overlay;
+  }
+
+  .img-file74 {
+    position: absolute;
+    width: 310px;
+    top: 30px;
+    right: 60px;
+    z-index: 1;
+  }
+
+  .flower-medium {
+    position: absolute;
+    width: 400px;
+    top: -50px;
+    right: 5px;
+    z-index: 6;
+    pointer-events: none;
+  }
+
+  .flower-small {
+    position: absolute;
+    width: 350px;
+    bottom: -40px;
+    right: -40px;
+    z-index: 2;
+    mix-blend-mode: color-burn;
+    pointer-events: none;
+  }
+
+
+  .memory-text-block {
+    position: absolute;
+    top: 160px;          /* adjust slightly */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 420px;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .memory-text {
+  position: absolute;
+  top: 20px;          /* adjust slightly */
+  left: 5%;
+  width: 430px;
+  text-align: left;
+  z-index: 10;
+}
+
+.memory-title {
+    position: absolute;
+    top: -90px;     /* move up/down */
+    left: 130px;    /* move left/right */
+    font-size: 2.2rem;
+    text-align: left;   
+    z-index: 10;
+    width: 300px;
+    line-height: 1;
+  }
+
+  .ai-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 8;
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+
+  .memory-stage.ai-active .ai-layer {
+    opacity: 1;
+  }
+  
+  .ai-node {
+    fill: #080808;
+    stroke: #000000;
+    stroke-width: 1.5;
+    opacity: 0.95;
+  }
+
+  .ai-node.is-active {
+    fill: #000000;
+    stroke: #ffffff;
+    stroke-width: 1;
+  }
+  
+  .ai-line {
+    stroke: #000000;
+    stroke-width: 1.6;
+    opacity: 0.8;
+    transition: stroke-dashoffset 260ms ease-out, opacity 220ms ease-out;
+  }
+
+  .ai-line.is-active {
+    stroke-width: 2.2;
+    opacity: 1;
+  }
+
+  .node-tag {
+    position: absolute;
+    z-index: 12;
+    background: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 0.28rem 0.5rem;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.72rem;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(4px);
+    pointer-events: none;
+    transition: opacity 130ms ease, transform 130ms ease;
+  }
+
+  .node-tag.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .node-tag:hover {
+    text-decoration: underline;
+  }

@@ -1,0 +1,186 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+  
+h1 {
+    font-family: "adobe-handwriting-ernie";
+ }
+
+body {
+  background: #000;
+  color: #f5f5f5;
+  font-family: "adobe-handwriting-ernie";
+}
+
+.site-header {
+    padding: 0.5rem 1rem 0.1rem;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 10;
+    background: #000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; 
+  border-bottom: 2px solid #f5f5f5;
+}
+
+.nav p {
+  margin: 0;
+}
+
+.nav-link {
+    font-family: "adobe-handwriting-ernie";
+    font-size: 2 rem;
+    text-decoration: none; 
+    color: #f5f5f5;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+.memory-stage {
+    position: relative;
+    width: 100%;
+    flex: 0 0 auto;
+    min-height: calc(100vh - 100px);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+.imageone{
+    position: absolute;
+    width: 615px;
+    top: 50px;
+    left: 25px;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.imagetwo {
+    position: absolute;
+    width: 650px;
+    bottom: 5px;
+    right: 20px;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.imagethree {
+    position: absolute;
+    width: 600px;
+    bottom: 5px;
+    left: 25px;
+    z-index: 1;
+    opacity:0.4;
+}
+
+.imagefour {
+    position: absolute;
+    width: 620px;
+    top: 50px;
+    right: 20px;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.center {
+    position: absolute;
+    width: 400px;
+    top: 120px;
+    left: 400px;
+    z-index: 4;
+    opacity: 0.65;
+    transition: outline-color 0.2s ease, outline-offset 0.2s ease, opacity 0.2s ease;
+}
+
+.back-link {
+    display: block;
+}
+
+.linkhome {
+    transition: outline-color 0.2s ease, outline-offset 0.2s ease, opacity 0.2s ease;
+}
+
+.back-link:hover .linkhome {
+    outline: 2px solid #f5f5f5;
+    outline-offset: 2px;
+    opacity: 0.9;
+}
+
+.file-stage .overlay {
+    position: absolute;
+    z-index: 8;
+    color: #fff;
+    font-family: "Courier New", monospace;
+    font-size: 0.7rem;
+    line-height: 0.95;
+}
+
+.file-stage .o1 {
+    top: 48px;
+    left: 320px;
+    opacity: 0.5;
+}
+
+.file-stage .o2 {
+    top: 300px;
+    right: 150px;
+    mix-blend-mode: color-burn;
+    
+}
+
+.file-stage .o3 {
+    bottom: 150px;
+    left: 80px;
+}
+
+.file-stage .o4 {
+    bottom: 70px;
+    right: 220px;
+}
+
+.file-stage .o5 {
+    top: 350px;
+    left: 300px;
+}
+
+.file-stage .h2 {
+    position: absolute;
+    z-index: 8;
+    margin: 0;
+    font-weight: 400;
+    color: #f5f5f5;
+    font-size: 0.78rem;
+    line-height: 0.5;
+    font-family: "Courier New", monospace;
+    letter-spacing: 0.01em;
+    transform: scaleY(5);
+    transform-origin: top left;
+}
+
+.file-stage .h2a {
+    top: 18px;
+    left: 34px;
+    mix-blend-mode: multiply;
+}
+
+.file-stage .h2b {
+    top: 200px;
+    left: 40px;
+    mix-blend-mode: multiply;
+    z-index: 4;
+}
+
+.file-stage .h2c {
+    bottom: 80px;
+    left: 52%;
+    mix-blend-mode: multiply;
+    z-index: 4;
+}

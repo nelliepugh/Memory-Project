@@ -1,0 +1,199 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100%;
+}
+
+h1 {
+    font-family: "adobe-handwriting-ernie";
+ }
+ body {
+    font-family: "adobe-handwriting-ernie";
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+ }
+
+ .site-header {
+    padding: 0.5rem 1rem 0.1rem;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 10;
+    background: white; /* important so it actually covers the video */
+    }
+
+ 
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; 
+    border-bottom: 2px solid #000;
+  }
+
+  .nav p {
+    margin: 0;
+  }
+ 
+ .nav-link {
+   font-family: "adobe-handwriting-ernie", cursive;
+   font-size: 2rem;
+   text-decoration: none; 
+   color: #000;
+ }
+ 
+ .nav-link:hover {
+   opacity: 0.7;
+ }
+
+ .memory-stage {
+  position: relative;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  
+}
+
+.camels_in_desert{
+  position: absolute;
+  width: 900px;
+  top: 470px;
+  left: 30px;
+  z-index: 15;
+  mix-blend-mode: none;
+  pointer-events: none;
+}
+
+
+.img-file15 {
+  position: absolute;
+  width: 410px;
+  top: 300px;
+  right: 30px;
+  z-index: -1;
+  mix-blend-mode: exclusion;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.img-file16{
+  position: absolute;
+  width: 400px;
+  top: 60px;
+  right: 120px;
+  z-index: 0;
+  mix-blend-mode: multiply;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.img-file17 {
+  position: absolute;
+  width: 375px;
+  top: 50px;
+  left: 35px;
+  z-index: 2;
+  mix-blend-mode: overlay;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.desert_dune {
+  position: absolute;
+  width: 600px;
+  top: 10px;
+  right: 10px;
+  z-index: 6;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+.memory-text {
+  position: absolute;
+  top: 140px;         
+  left: 450px;
+  width: 300px;
+  text-align: left;
+  z-index: 10;
+}
+
+.memory-title {
+    position: absolute;
+    top: 20px;
+    left: 450px;    
+    font-size: 2.2rem;
+    text-align: left;   
+    z-index: 10;
+    width: 500px;
+    line-height: 1;
+  }
+.ai-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 8;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.memory-stage.ai-active .ai-layer {
+  opacity: 1;
+}
+
+.ai-node {
+  fill: #080808;
+  stroke: #000000;
+  stroke-width: 1.5;
+  opacity: 0.95;
+}
+
+.ai-node.is-active {
+  fill: #000000;
+  stroke: #ffffff;
+  stroke-width: 1;
+}
+
+.ai-line {
+  stroke: #000000;
+  stroke-width: 1.6;
+  opacity: 0.8;
+  transition: stroke-dashoffset 260ms ease-out, opacity 220ms ease-out;
+}
+
+.ai-line.is-active {
+  stroke-width: 2.2;
+  opacity: 1;
+}
+
+.node-tag {
+  position: absolute;
+  z-index: 12;
+  background: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 0.28rem 0.5rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+  transition: opacity 130ms ease, transform 130ms ease;
+}
+
+.node-tag.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.node-tag:hover {
+  text-decoration: underline;
+}
