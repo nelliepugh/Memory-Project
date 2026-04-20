@@ -19,7 +19,15 @@ html, body {
       z-index: 10;
       background: white; /* important so it actually covers the video */
       }
-  
+
+      .para {
+        text-align: center;
+        max-width: 900px;
+        margin: 2rem auto;
+        line-height: 1.6;
+        font-family: "Courier New", Courier, monospace;
+      }
+    
    
     .nav {
       display: flex;

@@ -100,7 +100,7 @@ html, body {
 
   .memory-text {
   position: absolute;
-  top: 120px;          /* adjust slightly */
+  top: 80px;          /* adjust slightly */
   right: 14%;
   width: 550px;
   text-align: left;
@@ -109,7 +109,7 @@ html, body {
 
 .memory-title {
     position: absolute;
-    top: 60px;     /* move up/down */
+    top:20px;     /* move up/down */
     right:18%;   /* move left/right */
     font-size: 2.2rem;
     text-align: left;   

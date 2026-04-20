@@ -125,17 +125,17 @@ html, body {
 
   .memory-text {
     position: absolute;
-    top: 70px;          /* adjust slightly */
-    left: 50px;
-    width: 550px;
+    top: 40px;          /* adjust slightly */
+    left: 30px;
+    width: 670px;
     text-align: left;
     z-index: 10;
   }
   
   .memory-title {
       position: absolute;
-      top: 5px;     /* move up/down */
-      left: 50px;   /* move left/right */
+      top: 2px;     /* move up/down */
+      left: 30px;   /* move left/right */
       font-size: 2.2rem;
       text-align: left;   
       z-index: 10;
